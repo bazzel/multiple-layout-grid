@@ -9,6 +9,8 @@ User.reopenClass({
     return Ember.$.getJSON(url).then(function(data) {
       return data.results.map(function(result) {
         return User.create(result.user);
+      }, function(reason) {
+        alert('get data error!');
       });
     });
   }

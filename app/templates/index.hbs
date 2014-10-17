@@ -9,13 +9,13 @@
 <div class='container' id='userList'>
   <div class='row'>
     {{#each itemController='user'}}
-    <div {{bind-attr class='isMode1:col-xs-4: isMode2:col-xs-3: isMode3:col-xs-6:'}}>
+    <div {{bind-attr class='isList:col-xs-4: isThumbs:col-xs-3: isBigThumbs:col-xs-6:'}}>
       <div class='well'>
         <a href='' ng-click='showUserModal($index)'><img {{bind-attr src=picture.medium}} class='img-responsive'></a>
-        {{#unless isMode1}}
+        {{#unless isList}}
         <h3 class='cap'>{{name.first}}</h3>
         {{/unless}}
-        {{#if isMode3}}
+        {{#if isBigThumbs}}
         <p>
         {{location.city}}, {{location.state}} {{location.zip}}<br>
         {{phone}}
@@ -23,7 +23,7 @@
         {{/if}}
       </div>
     </div>
-    {{#if isMode1}}
+    {{#if isList}}
     <div class='col-xs-8'>
       <h2 class='cap'>{{name.first}} {{name.last}} <i {{bind-attr class=':fa isMale:fa-male:fa-female'}}></i></h2>
       <div class='row'>
