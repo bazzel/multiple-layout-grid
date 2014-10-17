@@ -1,5 +1,17 @@
 import Ember from 'ember';
 
-export default Ember.Object.extend({
+var User = Ember.Object.extend({});
 
+User.reopenClass({
+  findAll: function() {
+    var url = 'http://api.randomuser.me/?results=20';
+
+    return Ember.$.getJSON(url).then(function(data) {
+      return data.results.map(function(result) {
+        return User.create(result.user);
+      });
+    });
+  }
 });
+
+export default User;
