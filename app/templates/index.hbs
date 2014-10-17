@@ -11,7 +11,7 @@
     {{#each itemController='user'}}
     <div {{bind-attr class='isList:col-xs-4: isThumbs:col-xs-3: isBigThumbs:col-xs-6:'}}>
       <div class='well'>
-        <a href='' ng-click='showUserModal($index)'><img {{bind-attr src=picture.medium}} class='img-responsive'></a>
+        <a {{action 'openModal' 'modal' this}} href='javascript://;'><img {{bind-attr src=picture.medium}} class='img-responsive'></a>
         {{#unless isList}}
         <h3 class='cap'>{{name.first}}</h3>
         {{/unless}}
@@ -25,7 +25,7 @@
     </div>
     {{#if isList}}
     <div class='col-xs-8'>
-      <h2 class='cap'>{{name.first}} {{name.last}} <i {{bind-attr class=':fa isMale:fa-male:fa-female'}}></i></h2>
+      <h2 class='cap'>{{fullName}} <i {{bind-attr class=':fa isMale:fa-male:fa-female'}}></i></h2>
       <div class='row'>
         <div class='col-sm-6'>
           <p>

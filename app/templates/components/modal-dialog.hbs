@@ -1,0 +1,16 @@
+<div class='modal-dialog'>
+  <div class='modal-content'>
+    <div class='modal-header bg-info'>
+      <button type='button' class='close' data-dismiss='modal' aria-hidden='true'>×</button>
+      <h1 id='myModalLabel' class='text-center'>{{title}}</h1>
+    </div>
+    <div class='modal-body'>
+      <div class='container-fluid'>
+        {{yield}}
+      </div>
+    </div>
+    <div class='modal-footer bg-info'>
+      <button class='btn btn-lg btn-default center-block' data-dismiss='modal' aria-hidden='true'>Okay!</button>
+    </div>
+  </div>
+</div>

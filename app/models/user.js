@@ -1,6 +1,10 @@
 import Ember from 'ember';
 
-var User = Ember.Object.extend({});
+var User = Ember.Object.extend({
+  fullName: function() {
+    return [this.get('name.first'), this.get('name.last')].join(' ');
+  }.property('name.first', 'name.last')
+});
 
 User.reopenClass({
   findAll: function() {
