@@ -9,34 +9,34 @@
 <div class="container" id="userList">
   <div class="row">
     {{#each}}
-      <div ng-repeat-start="u in users" ng-class="{'col-xs-4':mode==1, 'col-xs-3':mode==2, 'col-xs-6':mode==3}">
-        <div class="well">
-          <a href="" ng-click="showUserModal($index)"><img {{bind-attr src=picture.medium}} class="img-responsive"></a>
-          <h3 class="cap" ng-hide="mode==1">{{name.first}}</h3>
-          <p ng-show="mode==3">
+    <div ng-class="{'col-xs-4':mode==1, 'col-xs-3':mode==2, 'col-xs-6':mode==3}">
+      <div class="well">
+        <a href="" ng-click="showUserModal($index)"><img {{bind-attr src=picture.medium}} class="img-responsive"></a>
+        <h3 class="cap" ng-hide="mode==1">{{name.first}}</h3>
+        <p ng-show="mode==3">
+        {{location.city}}, {{location.state}} {{location.zip}}<br>
+        {{phone}}
+        </p>
+      </div>
+    </div>
+    <div ng-class="{'col-xs-8':mode==1, 'col-xs-6':mode==3}" ng-hide="mode==2||mode==3">
+      <h2 class="cap">{{name.first}} {{name.last}} <i ng-show="u.user.gender=='female'" class="fa fa-female"></i><i ng-show="u.user.gender=='male'" class="fa fa-male"></i></h2>
+      <div class="row">
+        <div class="col-sm-6">
+          <p>
           {{location.city}}, {{location.state}} {{location.zip}}<br>
           {{phone}}
           </p>
         </div>
-      </div>
-      <div ng-class="{'col-xs-8':mode==1, 'col-xs-6':mode==3}" ng-hide="mode==2||mode==3">
-        <h2 class="cap">{{name.first}} {{name.last}} <i ng-show="u.user.gender=='female'" class="fa fa-female"></i><i ng-show="u.user.gender=='male'" class="fa fa-male"></i></h2>
-        <div class="row">
-          <div class="col-sm-6">
-            <p>
-            {{location.city}}, {{location.state}} {{location.zip}}<br>
-            {{phone}}
-            </p>
-          </div>
-          <div class="col-sm-6 text-right">
-            <div class="hidden-xs">
-              <a href="">{{email}}</a><br>
-              <h3><span class="label label-primary">{{username}}</span></h3>
-            </div>
+        <div class="col-sm-6 text-right">
+          <div class="hidden-xs">
+            <a href="">{{email}}</a><br>
+            <h3><span class="label label-primary">{{username}}</span></h3>
           </div>
         </div>
       </div>
-      <div ng-repeat-end="" ng-class="{'clearfix':mode==1}"></div>
+    </div>
+    <div ng-repeat-end="" ng-class="{'clearfix':mode==1}"></div>
     {{/each}}
 
   </div><!--/row-->
